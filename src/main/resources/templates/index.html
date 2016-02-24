@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Greeting</title>
+    <title>Url Shortner</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p>Hello</p>
+<h1>Url Shortner</h1>
+<form action="#" th:action="@{/url-shortner}" th:object="${urlShortner}" method="post">
+    <p><input type="text" th:field="*{originalUrl}" /></p>
+    <p><input type="submit" value="Submit" /> </p>
+</form>
 </body>
 </html>
