@@ -2,20 +2,22 @@ package com.naba.url.shortner;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class UrlShortnerController {
 
-    @RequestMapping("/")
-    public String landingPage() {
+    @RequestMapping(method = RequestMethod.GET)
+    public String defaultPage(Model model) {
+        model.addAttribute("urlShortner", new UrlShortner());
         return "index";
     }
 
-    @RequestMapping("/url-shortner/{url}")
-    public String urlShortner(@PathVariable String url, Model model) {
-        model.addAttribute("name", url);
-        return "gretting";
+    @RequestMapping(value = "/url-shortner", method = RequestMethod.POST)
+    public String urlShortner(@ModelAttribute UrlShortner url, Model model) {
+        model.addAttribute("urlShortner", url);
+        return "result";
     }
 }
