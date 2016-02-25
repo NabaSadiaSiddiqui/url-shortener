@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Url Shortner</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-<h1>Url Shortner</h1>
-<form action="#" th:action="@{/url-shortner}" th:object="${urlShortner}" method="post">
-    <p><input type="text" th:field="*{originalUrl}" /></p>
-    <p><input type="submit" value="Submit" /> </p>
-</form>
-</body>
+    <head>
+        <title>Url Shortner</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            body {
+                background-color: yellow;
+            }
+
+            header {
+                height: 20%;
+            }
+
+            section {
+                height: 80%;
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            form {
+                text-align: center;
+            }
+
+            input[type="text"] {
+                font-size: 25px;
+            }
+
+            input[type="submit"] {
+                font-size: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Url Shortner</h1>
+        </header>
+        <section>
+            <form action="#" th:action="@{/url-shortner}" th:object="${urlShortner}" method="post">
+                <input type="text" th:field="*{originalUrl}" placeholder="http://www.some-very-long-url.com" size="50" />
+                <input type="submit" value="Shorten Url" />
+            </form>
+        </section>
+    </body>
 </html>
