@@ -17,8 +17,13 @@ public class UrlShortnerController {
 
     @RequestMapping(value = "/url-shortner", method = RequestMethod.POST)
     public String urlShortner(@ModelAttribute UrlShortner url, Model model) {
-        url.setShortnedUrl(url.getOriginalUrl() + "/shortned");
+        url.setShortnedUrl(shortenUrl(url.getOriginalUrl()));
         model.addAttribute("urlShortner", url);
         return "index";
+    }
+
+    private String shortenUrl(String originalUrl) {
+        String shortenedUrl = String.valueOf(originalUrl.hashCode());
+        return shortenedUrl;
     }
 }
