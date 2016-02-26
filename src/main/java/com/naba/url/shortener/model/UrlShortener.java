@@ -12,18 +12,26 @@ public class UrlShortener {
 
     public String shortenUrl(String originalUrl) throws Exception {
         String shortenedUrl = String.valueOf(originalUrl.hashCode());
-        String status = setValue(originalUrl, shortenedUrl);
+        String status = setValue(shortenedUrl, originalUrl);
         if(!status.equalsIgnoreCase("OK")) {
             throw new Exception("Unable to set url in Redis");
         }
         return shortenedUrl;
     }
 
-    private String setValue(String key, String value) {
-        return jedis.set(key, value);
+    public String getOriginalUrl(String shortenedUrl) throws Exception {
+        String originalUrl = getValue(shortenedUrl);
+        if(originalUrl == null) {
+            throw new Exception("Unable to retrieve url from Redis");
+        }
+        return originalUrl;
     }
 
     private String getValue(String key) {
         return jedis.get(key);
+    }
+
+    private String setValue(String key, String value) {
+        return jedis.set(key, value);
     }
 }
