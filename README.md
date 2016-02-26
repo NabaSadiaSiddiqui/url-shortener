@@ -1,7 +1,5 @@
 # url-shortener
 A link management platform
 
-## Features
-* A Spring MVC and Spring Boot application
-* Uses embedded Tomcat (runs on localhost:8080)
-* Redis is used for `original url` -> `shortened url` mapping
+## Details
+This is a Spring Boot and Spring MVC application. The application uses Redis to keep a mapping between `original url` and `shortened url`. It uses Thymeleaf as template framework, and runs on embedded Tomcat at localhost:8080. 
