@@ -1,9 +1,9 @@
-package com.naba.url.shortener;
+package com.naba.url.shortener.model;
 
 import lombok.Data;
 
 @Data
-public class UrlShortner {
+public class UrlState {
     private String originalUrl;
     private String shortnedUrl;
 }
