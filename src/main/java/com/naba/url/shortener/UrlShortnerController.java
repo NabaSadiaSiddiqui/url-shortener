@@ -1,4 +1,4 @@
-package com.naba.url.shortner;
+package com.naba.url.shortener;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

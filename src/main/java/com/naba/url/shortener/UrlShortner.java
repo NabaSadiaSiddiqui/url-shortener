@@ -1,4 +1,4 @@
-package com.naba.url.shortner;
+package com.naba.url.shortener;
 
 import lombok.Data;
 
