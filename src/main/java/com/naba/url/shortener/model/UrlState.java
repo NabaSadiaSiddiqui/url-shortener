@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class UrlState {
     private String originalUrl;
-    private String shortnedUrl;
+    private String shortenedUrl;
 }

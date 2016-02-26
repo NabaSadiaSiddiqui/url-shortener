@@ -53,11 +53,11 @@
             <h1>Url Shortner</h1>
         </header>
         <section>
-            <form action="#" th:action="@{/url-shortner}" th:object="${urlShortner}" method="post">
+            <form action="#" th:action="@{/url-shortener}" th:object="${urlShortener}" method="post">
                 <input type="text" th:field="*{originalUrl}" placeholder="http://www.some-very-long-url.com" size="50" />
                 <input type="submit" value="Shorten Url" />
             </form>
-            <p th:text="*{urlShortner.shortnedUrl}"/>
+            <p th:text="*{urlShortener.shortenedUrl}"/>
         </section>
     </body>
 </html>
