@@ -10,19 +10,19 @@ public class UrlShortener {
     @Autowired
     Jedis jedis;
 
-    public String shortenUrl(String originalUrl) throws Exception {
+    public String shortenUrl(String originalUrl) throws SetRedisKeyValueException {
         String shortenedUrl = String.valueOf(originalUrl.hashCode());
         String status = setValue(shortenedUrl, originalUrl);
         if(!status.equalsIgnoreCase("OK")) {
-            throw new Exception("Unable to set url in Redis");
+            throw new SetRedisKeyValueException("Unable to set url in Redis");
         }
         return shortenedUrl;
     }
 
-    public String getOriginalUrl(String shortenedUrl) throws Exception {
+    public String getOriginalUrl(String shortenedUrl) throws GetRedisKeyValueException {
         String originalUrl = getValue(shortenedUrl);
         if(originalUrl == null) {
-            throw new Exception("Unable to retrieve url from Redis");
+            throw new GetRedisKeyValueException("Unable to retrieve url from Redis");
         }
         return originalUrl;
     }
